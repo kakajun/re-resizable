@@ -14,8 +14,7 @@
     "release": "pnpm build && node ./scripts/release.js"
   },
   "devDependencies": {
-    "react-es-drager": "workspace:*",
-    "@es-drager/editor": "workspace:*",
+    "react-resize": "workspace:*",
     "less": "^4.2.0",
     "gh-pages": "^6.1.1",
     "esprint": "^3.6.0",
@@ -37,7 +36,6 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "typescript": "^5.6.2",
-    "echarts": "^5.5.1",
     "vite": "^5.4.8",
     "vite-plugin-dts": "4.2.3",
     "react-moveable": "^0.56.0",
@@ -51,12 +49,11 @@
     "chalk": "4.1.0",
     "semver": "^7.5.4",
     "enquirer": "^2.4.1",
-    "minimist": "^1.2.8"
+    "minimist": "^1.2.8",
+    "sinon": "9.0.3"
   },
   "keywords": [
     "react",
-    "ruler",
-    "drager",
-    "react-drager"
+    "react-resize"
   ]
 }

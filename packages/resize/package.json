@@ -1,0 +1,33 @@
+{
+  "name": "react-resize",
+  "version": "1.0.0",
+  "description": "A draggable, resizable, rotatable component based on react",
+  "type": "module",
+  "keywords": [
+    "react",
+    "resize"
+  ],
+  "homepage": "https://github.com/kakajun/react-resize",
+  "bugs": {
+    "url": "https://github.com/kakajun/react-resize/issues"
+  },
+  "license": "MIT",
+  "author": "kakajun <253495832@qq.com>",
+  "files": [
+    "lib"
+  ],
+  "main1": "lib/index.js",
+  "main": "./index.tsx",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kakajun/react-resize.git"
+  },
+  "scripts": {
+    "build": "vite build .",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0"
+  },
+  "typings": "lib/index.d.ts",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  }
+}
