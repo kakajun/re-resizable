@@ -1,336 +1,193 @@
-<p align="center"><img src ="https://github.com/bokuweb/re-resizable/blob/master/logo.png?raw=true" /></p>
+# Rect ES Drager 拖拽组件
 
-<p align="center">📏 A resizable component for React.</p>
+- [中文](https://github.com/kakajun/react-es-drager)
+- [English](https://github.com/kakajun/react-es-drager/blob/main/README_en.md)
 
-<p align="center"><img src="https://github.com/bokuweb/re-resizable/workflows/Continuous%20Integration/badge.svg" alt="Build Status" />
-<a href="https://www.npmjs.com/package/re-resizable">
-<img src="https://img.shields.io/npm/v/re-resizable.svg" alt="Build Status" /></a>
-<a href="https://www.npmjs.com/package/re-resizable">
-<img src="https://img.shields.io/npm/dm/re-resizable.svg" /></a>
-<a href="https://renovatebot.com/">
-<img src="https://img.shields.io/badge/renovate-enabled-brightgreen.svg" /></a>
-<a href="https://github.com/prettier/prettier">
-<img src="https://img.shields.io/badge/styled_with-prettier-ff69b4.svg" /></a>
-</p>
+<p align="middle" ><img width="100" src="https://kakajun.github.io/react-es-drager/logo/logo.png"/></p>
 
-## Table of Contents
+<table width="100%" align="center">
+<tr>
+<th colspan="4">ES Drager</th>
+</tr>
+<tr>
+<td align="center"><a href="https://kakajun.github.io/react-es-drager/"><strong>Draggable</strong></a></td>
+<td align="center"><a href="https://kakajun.github.io/react-es-drager/"><strong>Resizable</strong></a></td>
+<td align="center"><a href="https://kakajun.github.io/react-es-drager/"><strong>Rotatable</strong></a></td>
+</tr>
+<tr>
+<td align="center">
+<img src="https://kakajun.github.io/react-es-drager//static/draggable.gif" />
+</td>
+<td align="center">
+<img src="https://kakajun.github.io/react-es-drager//static/resizable.gif" />
+</td>
+<td align="center">
+<img src="https://kakajun.github.io/react-es-drager//static/rotatable.gif" />
+</td>
+</tr>
+</table>
 
-- [Screenshot](#Screenshot)
-- [Live Demo](#live-demo)
-  - [Storybook](#storybook)
-  - [CodeSandbox](#codesandbox)
-- [Install](#install)
-- [Usage](#usage)
-- [Props](#props)
-- [Instance API](#instance-api)
-  - [updateSize(size: { width: number | string, height: number | string }): void](#updateSize-void)
-- [Test](#test)
-- [Related](#related)
+## 🌈介绍
 
-## Screenshot
+基于 react18 + typescript + vite 的可拖拽、缩放、旋转的组件
 
-![screenshot](https://github.com/bokuweb/re-resizable/blob/master/docs/screenshot.gif?raw=true)
+- 拖拽&区域拖拽
+- 支持缩放
+- 旋转
+- 网格拖拽缩放
+- 拖拽编辑器
 
-## Live Demo
-
-### Storybook
-
-[Storybook](http://bokuweb.github.io/re-resizable/)
-
-### CodeSandbox
-
-[![Edit xp9p7272m4](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/xp9p7272m4)  
-[CodeSandbox](https://codesandbox.io/s/xp9p7272m4)  
-[CodeSandbox(TypeScript)](https://codesandbox.io/s/1vwo2p4l64)   
-[CodeSandbox(With hooks)](https://codesandbox.io/s/blissful-joliot-d3unx)
-
-## Install
+### 运行项目
 
 ```sh
-$ npm install --save re-resizable
+# 拉取项目
+git clone https://github.com/kakajun/react-es-drager.git
+
+# 安装依赖
+pnpm install
+
+# 运行项目
+pnpm dev
+
+# 打包drager组件
+pnpm build
+
+# 打包文档
+pnpm build:demo
 ```
 
-## Usage
+### 主要目录介绍
 
-### Example with `defaultSize`
+| 目录            | 功能说明                 |
+| --------------- | ------------------------ |
+| packages/docs   | 项目示例文档、编辑器展示 |
+| packages/editor | 编辑器核心代码           |
+| packages/drager | es-drager组件            |
 
-```javascript
-import { Resizable } from 're-resizable';
+## 综合案例
 
-<Resizable
-  defaultSize={{
-    width: 320,
-    height: 200,
-  }}
->
-  Sample with default size
-</Resizable>
+下面是基于 `react-es-drager` 实现的一个简单可视化拖拽编辑器
+
+[ES Drager Editor](https://kakajun.github.io/react-es-drager//#/editor)
+
+### 相关文章
+
+[可拖拽、缩放、旋转组件实现细节](https://juejin.cn/post/7225152932675993655)
+
+[网格效果及使用方法](https://juejin.cn/post/7239895206081806373)
+
+[辅助线和撤销回退](https://juejin.cn/post/7254812719349383225)
+
+[元素组合与拆分](https://juejin.cn/post/7258337246024843319)
+
+[菜单操作栏、json数据导入导出](https://juejin.cn/post/7269603447673880636)
+
+## ⚡ 使用说明
+
+### 安装依赖
+
+```
+npm i react-es-drager -D
 ```
 
-If you only want to set the width, you can do so by providing just the width property. 
-The height property will automatically be set to auto, which means it will adjust 100% of its parent's height:
+### 组件中直接使用
 
-```javascript
-import { Resizable } from 're-resizable';
+```jsx
+import Drager from 'react-es-drager'
+const dragList = []
+const BasicComponent = () => {
+  return (
+    <>
+      {dragList.map((list, index) =>
+        list.map((item, index2) => (
+          <Drager
+            key={`${index}-${index2}`}
+            width={100}
+            height={100}
+            left={index2 * 150 + 30}
+            top={index * 150 + 30}
+            {...item}
+            style={{ color: item.color }}
+          >
+            {item.text}
+          </Drager>
+        ))
+      )}
+    </>
+  )
+}
 
-<Resizable
-  defaultSize={{
-    width: 320
-  }}
->
-  Sample with default size
-</Resizable>
-```
-### Example with `size`
-
-If you use `size` props, please manage state by yourself.
-
-```javascript
-import { Resizable } from 're-resizable';
-
-<Resizable
-  size={{ width: this.state.width, height: this.state.height }}
-  onResizeStop={(e, direction, ref, d) => {
-    this.setState({
-      width: this.state.width + d.width,
-      height: this.state.height + d.height,
-    });
-  }}
->
-  Sample with size
-</Resizable>
+export default BasicComponent
 ```
 
-## Props
+## Drager API
 
-#### `defaultSize?: { width?: (number | string), height?: (number | string) };`
+### Drager 属性
 
-Specifies the `width` and `height` that the dragged item should start at.
-For example, you can set `300`, `'300px'`, `50%`.
-If both `defaultSize` and `size` omitted, set `'auto'`.
+| 属性名 | 说明 | 类型 | 默认 |
+| --- | --- | --- | --- |
+| width | 宽度 | ^[number] | 100 |
+| height | 高度 | ^[number] | 100 |
+| left | 横坐标偏移 | ^[number] | 0 |
+| top | 纵坐标偏移 | ^[number] | 0 |
+| angle | 旋转角度 | ^[number] | 0 |
+| color | 颜色 | ^[string] | #3a7afe |
+| resizable | 是否可缩放 | ^[boolean] | true |
+| rotatable | 是否可旋转 | ^[boolean] | - |
+| boundary | 是否判断边界(最近定位父节点) | ^[boolean] | - |
+| disabled | 是否禁用 | ^[boolean] | - |
+| minWidth | 最小宽度 | ^[number] | 1 |
+| minHeight | 最小高度 | ^[number] | 1 |
+| maxWidth | 最大宽度 | ^[number] | 9999 |
+| maxHeight | 最大高度 | ^[number] | 9999 |
+| selected | 控制是否选中 | ^[boolean] | - |
+| checkCollision | 是否开启碰撞检测 | ^[boolean] | - |
+| snapToGrid | 开启网格 | ^[boolean] | - |
+| gridX | 网格X大小 | ^[number] | 50 |
+| gridY | 网格Y大小 | ^[number] | 50 |
+| snap | 开启吸附 | ^[boolean] | - |
+| snapThreshold | 吸附阈值 | ^[number] | 10 |
+| markline | 辅助线([可自定义] | ^[boolean]^[Function] | - |
+| scaleRatio | 缩放比 | ^[number] | 1 |
+| disabledKeyEvent | 禁用方向键移动 | ^[boolean] | - |
+| border | 是否显示边框 | ^[boolean] | true |
+| aspectRatio | 宽高缩放比 | ^[number] | - |
+| equalProportion | 宽高等比缩放(该属性和aspectRatio互斥，同时使用会存在问题) | ^[boolean] | - |
+| resizeList | 显示的缩放handle列表，`top`, `bottom`, `left`, `right`, `top-left`, `top-right`, `bottom-left`, `bottom-right` | ^[string[]] | - |
 
-`defaultSize` will be ignored when `size` set.
+### Drager 事件
 
-#### `size?: { width?: (number | string), height?: (number | string) };`
+| 事件名        | 说明            | 类型                            |
+| ------------- | --------------- | ------------------------------- |
+| onChange      | 位置、大小改变  | ^[Function]`(dragData) => void` |
+| onDrag        | 拖拽中          | ^[Function]`(dragData) => void` |
+| onDragStart   | 拖拽开始        | ^[Function]`(dragData) => void` |
+| onDragEnd     | 拖拽结束        | ^[Function]`(dragData) => void` |
+| onResize      | 缩放中          | ^[Function]`(dragData) => void` |
+| onResizeStart | 缩放开始        | ^[Function]`(dragData) => void` |
+| onResizeEnd   | 缩放结束        | ^[Function]`(dragData) => void` |
+| onRotate      | 旋转中          | ^[Function]`(dragData) => void` |
+| onRotateStart | 旋转开始        | ^[Function]`(dragData) => void` |
+| onRotateEnd   | 旋转结束        | ^[Function]`(dragData) => void` |
+| onFocus       | 获取焦点/选中   | ^[Function]`(selected) => void` |
+| onBlur        | 失去焦点/非选中 | ^[Function]`(selected) => void` |
 
-The `size` property is used to set the size of the component.
-For example, you can set `300`, `'300px'`, `50%`.
-
-Use `size` if you need to control size state by yourself.
-
-#### `className?: string;`
-
-The `className` property is used to set the custom `className` of a resizable component.
-
-#### `style?: { [key: string]: string };`
-
-The `style` property is used to set the custom `style` of a resizable component.
-
-#### `minWidth?: number | string;`
-
-The `minWidth` property is used to set the minimum width of a resizable component. Defaults to 10px.
-
-It accepts viewport as well as parent relative units. For example, you can set `300`, `50%`, `50vw` or `50vh`.
-
-Same type of values can be applied to `minHeight`, `maxWidth` and `maxHeight`.
-
-#### `minHeight?: number | string;`
-
-The `minHeight` property is used to set the minimum height of a resizable component. Defaults to 10px.
-
-#### `maxWidth?: number | string;`
-
-The `maxWidth` property is used to set the maximum width of a resizable component.
-
-#### `maxHeight?: number | string`;
-
-The `maxHeight` property is used to set the maximum height of a resizable component.
-
-#### `grid?: [number, number];`
-
-The `grid` property is used to specify the increments that resizing should snap to. Defaults to `[1, 1]`.
-
-#### `gridGap?: [number, number];`
-
-The `gridGap` property is used to specify any gaps between your grid cells that should be accounted for when resizing. Defaults to `[0, 0]`.
-The value provided for each axis will always add the grid gap amount times grid cells spanned minus one.
-
-#### `snap?: { x?: Array<number>, y?: Array<number> };`
-
-The `snap` property is used to specify absolute pixel values that resizing should snap to. `x` and `y` are both optional, allowing you to only include the axis you want to define. Defaults to `null`.
-
-#### `snapGap?: number`
-
-The `snapGap` property is used to specify the minimum gap required in order to move to the next snapping target. Defaults to `0` which means that snap targets are always used.
-
-#### `resizeRatio?: number | [number, number];`
-
-The `resizeRatio` property is used to set the number of pixels the resizable component scales by compared to the number of pixels the mouse/touch moves. Defaults to `1` (for a 1:1 ratio). The number set is the left side of the ratio, `2` will give a 2:1 ratio.
-
-For [number, number] means [resizeRatioX, resizeRatioY], more precise control.
-
-#### `lockAspectRatio?: boolean | number;`
-
-The `lockAspectRatio` property is used to lock aspect ratio.
-Set to `true` to lock the aspect ratio based on the initial size.
-Set to a numeric value to lock a specific aspect ratio (such as `16/9`).
-If set to numeric, make sure to set initial height/width to values with correct aspect ratio.
-If omitted, set `false`.
-
-#### `lockAspectRatioExtraWidth?: number;`
-
-The `lockAspectRatioExtraWidth` property enables a resizable component to maintain an aspect ratio plus extra width.
-For instance, a video could be displayed 16:9 with a 50px side bar.
-If omitted, set `0`.
-
-#### `lockAspectRatioExtraHeight?: number;`
-
-The `lockAspectRatioExtraHeight` property enables a resizable component to maintain an aspect ratio plus extra height.
-For instance, a video could be displayed 16:9 with a 50px header bar.
-If omitted, set `0`.
-
-#### `bounds?: ('window' | 'parent' | HTMLElement);`
-
-Specifies resize boundaries.
-
-#### `boundsByDirection?: boolean;`
-
-By default max dimensions based on left and top element position.
-Width grow to right side, height grow to bottom side.
-Set `true` for detect max dimensions by direction.
-For example: enable `boundsByDirection` when resizable component stick on right side of screen and you want resize by left handler;
-
-`false` by default.
-
-#### `handleStyles?: HandleStyles;`
-
-The `handleStyles` property is used to override the style of one or more resize handles.
-Only the axis you specify will have its handle style replaced.
-If you specify a value for `right` it will completely replace the styles for the `right` resize handle,
-but other handle will still use the default styles.
-
-#### `handleClasses?: HandleClassName;`
-
-The `handleClasses` property is used to set the className of one or more resize handles.
-
-#### `handleComponent?: HandleComponent;`
-
-The `handleComponent` property is used to pass a React Component to be rendered as one or more resize handle. For example, this could be used to use an arrow icon as a handle..
-
-#### `handleWrapperStyle?: { [key: string]: string };`
-
-The `handleWrapperStyle` property is used to override the style of resize handles wrapper.
-
-#### `handleWrapperClass?: string;`
-
-The `handleWrapperClass` property is used to override the className of resize handles wrapper.
-
-#### `enable?: ?Enable | false;`
-
-The `enable` property is used to set the resizable permission of a resizable component.
-
-The permission of `top`, `right`, `bottom`, `left`, `topRight`, `bottomRight`, `bottomLeft`, `topLeft` direction resizing.
-If omitted, all resizer are enabled.
-If you want to permit only right direction resizing, set `{ top:false, right:true, bottom:false, left:false, topRight:false, bottomRight:false, bottomLeft:false, topLeft:false }`.
-
-#### `onResizeStart?: ResizeStartCallBack;`
-
-`ResizeStartCallBack` type is below.
+- dragData 类型
 
 ```javascript
-type ResizeStartCallback = (
-  e: SyntheticMouseEvent<HTMLDivElement> | SyntheticTouchEvent<HTMLDivElement>,
-  dir: ResizableDirection,
-  refToElement: HTMLDivElement,
-) => void;
-```
-
-Calls when resizable component resize start.
-
-#### `onResize?: ResizeCallback;`
-
-#### `scale?: number`;
-
-The `scale` property is used in the scenario where the resizable element is a descendent of an element using css scaling (e.g. - `transform: scale(0.5)`).
-
-#### `as?: string | React.ComponentType`;
-
-By default the `Resizable` component will render a `div` as a wrapper. The `as` property is used to change the element used.
-
-### Basic
-
-`ResizeCallback` type is below.
-
-```javascript
-type ResizeCallback = (
-  event: MouseEvent | TouchEvent,
-  direction: ResizableDirection,
-  refToElement: HTMLDivElement,
-  delta: NumberSize,
-) => void;
-```
-
-Calls when resizable component resizing.
-
-#### `onResizeStop?: ResizeCallback;`
-
-`ResizeCallback` type is below.
-
-```javascript
-type ResizeCallback = (
-  event: MouseEvent | TouchEvent,
-  direction: ResizableDirection,
-  refToElement: HTMLDivElement,
-  delta: NumberSize,
-) => void;
-```
-
-Calls when resizable component resize stop.
-
-## Instance API
-
-#### * `updateSize(size: { width: number | string, height: number | string }): void`
-
-Update component size.
-
-`grid`, `snap`, `max/minWidth`, `max/minHeight` props is ignored, when this method called.
-
-- for example
-
-```javascript
-class YourComponent extends Component {
-
-  // ...
-
-  update() {
-    this.resizable.updateSize({ width: 200, height: 300 });
-  }
-
-  render() {
-    return (
-      <Resizable ref={c => { this.resizable = c; }}>
-        example
-      </Resizable>
-    );
-  }
-
-  // ...
+export type DragData = {
+  width: number
+  height: number
+  left: number
+  top: number
+  angle: number
 }
 ```
 
-## Contribute
+### Drager 插槽
 
-If you have a feature request, please add it as an issue or make a pull request.
-
-If you have a bug to report, please reproduce the bug in [CodeSandbox](https://codesandbox.io/s/ll587k677z) to help us easily isolate it.
-
-## Test
-
-``` sh
-npm test
-```
-
-## Related
-
-- [react-rnd](https://github.com/bokuweb/react-rnd)
-- [react-sortable-pane](https://github.com/bokuweb/react-sortable-pane)
+| 插槽名  | 说明           |
+| ------- | -------------- |
+| default | 自定义默认内容 |
+| resize  | 缩放handle     |
+| rotate  | 旋转handle     |

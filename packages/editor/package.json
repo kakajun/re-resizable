@@ -1,0 +1,17 @@
+{
+  "name": "@es-drager/editor",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "devDependencies": {
+    "gsap": "^3.12.5",
+    "zustand": "5.0.0-rc.2",
+    "html2canvas": "^1.4.1",
+    "jspdf": "^2.5.1",
+    "mitt": "^3.0.1",
+    "color": "^4.2.3",
+    "dayjs": "^1.11.13",
+    "@types/color": "^3.0.3",
+    "@floating-ui/react-dom": "^2.1.2"
+  }
+}
