@@ -13,6 +13,11 @@ lib
 dist-ssr
 *.local
 
+.rpt2_cache
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
 # Editor directories and files
 
 !.vscode/extensions.json

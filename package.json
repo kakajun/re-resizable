@@ -6,12 +6,13 @@
   "private": true,
   "scripts": {
     "dev": "pnpm --filter ./packages/docs dev",
-    "build": "pnpm --filter ./packages/drager build",
+    "build": "pnpm --filter ./packages/resize build",
     "build:demo": "pnpm --filter ./packages/docs build",
     "format": "prettier --write  \"packages/**/src/**/*.{js,ts,json,tsx,less,vue,html,md}\"",
     "lint": "esprint check --workers=4 --fix",
-    "changelog": "pnpm --filter ./packages/drager changelog",
-    "release": "pnpm build && node ./scripts/release.js"
+    "changelog": "pnpm --filter ./packages/resize changelog",
+    "release": "pnpm build && node ./scripts/release.js",
+    "test": "playwright test -c playwright-ct.config.ts"
   },
   "devDependencies": {
     "react-resize": "workspace:*",
@@ -19,6 +20,7 @@
     "gh-pages": "^6.1.1",
     "esprint": "^3.6.0",
     "@types/node": "^22.7.4",
+    "@types/sinon": "9.0.10",
     "@types/react": "^18.3.11",
     "@types/react-dom": "^18.3.0",
     "@typescript-eslint/eslint-plugin": "^8.8.0",
@@ -50,7 +52,9 @@
     "semver": "^7.5.4",
     "enquirer": "^2.4.1",
     "minimist": "^1.2.8",
-    "sinon": "9.0.3"
+    "sinon": "9.0.3",
+    "playwright-core": "^1.43.1",
+    "@playwright/experimental-ct-react": "^1.43.1"
   },
   "keywords": [
     "react",

@@ -15,8 +15,8 @@ export default defineConfig({
   build: {
     outDir: 'lib',
     lib: {
-      entry: resolve(__dirname, './index.tsx'),
-      name: 'ESDrager',
+      entry: resolve(__dirname, './src/index.tsx'),
+      name: 'ESresize',
       fileName: 'index'
     },
     rollupOptions: {

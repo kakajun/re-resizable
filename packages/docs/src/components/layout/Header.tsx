@@ -3,7 +3,7 @@ import lightGithubIcon from '@/assets/images/light-github.svg'
 import darkGithubIcon from '@/assets/images/dark-github.svg'
 import lightThemeIcon from '@/assets/images/light-theme.svg'
 import darkThemeIcon from '@/assets/images/dark-theme.svg'
-import logo from '/logo/logo4.png'
+
 import { Link } from 'react-router-dom'
 import './Header.less'
 
@@ -35,7 +35,7 @@ const EsHeader: React.FC<Props> = ({ title = 'react-sketch-ruler', children }) =
   return (
     <div className="es-header">
       <h1 className="es-logo">
-        <img className="es-logo-img" src={logo} alt="react-sketch-ruler" />
+        {/* <img className="es-logo-img" src={logo} alt="react-sketch-ruler" /> */}
         <Link to="/">
           <span>{title}</span>
         </Link>
@@ -50,7 +50,7 @@ const EsHeader: React.FC<Props> = ({ title = 'react-sketch-ruler', children }) =
         </a>
         <a
           className="es-header-link"
-          href="https://github.com/kakajun/react-es-drager"
+          href="https://github.com/kakajun/react-es-resize"
           target="_blank"
         >
           <img src={isLight ? lightGithubIcon : darkGithubIcon} />
