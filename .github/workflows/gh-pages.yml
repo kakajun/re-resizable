@@ -2,10 +2,10 @@ name: gh-pages
 
 on:
   push:
-    branches: [main]
-    # branches: [master]
+    # branches: [main]
+    branches: [master]
   pull_request:
-    branches: [main]
+    branches: [master]
 
 jobs:
   build-and-deploy:
