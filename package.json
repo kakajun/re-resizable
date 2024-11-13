@@ -52,9 +52,9 @@
     "semver": "^7.5.4",
     "enquirer": "^2.4.1",
     "minimist": "^1.2.8",
-    "sinon": "9.0.3",
+    "sinon": "^19.0.2",
     "playwright-core": "^1.43.1",
-    "@playwright/experimental-ct-react": "^1.43.1"
+    "@playwright/experimental-ct-react": "^1.48.2"
   },
   "keywords": [
     "react",

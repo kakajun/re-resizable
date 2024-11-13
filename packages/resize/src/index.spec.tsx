@@ -1,5 +1,4 @@
 import { test, expect } from '@playwright/experimental-ct-react'
-import React from 'react'
 import { spy } from 'sinon'
 import { Resizable } from '.'
 
@@ -264,6 +263,8 @@ test('Should not begin resize when onResizeStart returns false', async ({ mount,
   const resizable = await mount(<Resizable onResizeStart={onResizeStart} onResize={onResize} />)
   const divs = resizable.locator('div')
   await (await divs.all())[1].dispatchEvent('mousedown')
+  // 添加等待时间，确保事件处理完成
+  await page.waitForTimeout(100) // 等待100毫秒
   await page.mouse.move(100, 200)
   expect(onResize.callCount).toBe(0)
 })
