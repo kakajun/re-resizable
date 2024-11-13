@@ -1,6 +1,7 @@
 {
   "route": {
-    "basic": "Basic Example"
+    "basic": "Basic Example",
+    "auto": "Auto"
   },
   "common": {
     "code": "Code",

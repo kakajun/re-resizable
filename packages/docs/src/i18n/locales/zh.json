@@ -1,6 +1,7 @@
 {
   "route": {
-    "basic": "基础示例"
+    "basic": "基础示例",
+    "auto": "自动"
   },
   "common": {
     "code": "代码",

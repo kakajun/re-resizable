@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/experimental-ct-react'
 import React from 'react'
-import spy from 'sinon'
+import { spy } from 'sinon'
 import { Resizable } from '.'
 
 test.use({ viewport: { width: 500, height: 500 } })

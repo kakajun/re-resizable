@@ -2,7 +2,7 @@ import { createHashRouter, createBrowserRouter, Navigate } from 'react-router-do
 import HomeLayout from './views/Home'
 import React from 'react'
 import Basic from './examples/Basic'
-// import Event from './examples/Event'
+import Auto from './examples/Auto'
 // import Group from './examples/Group'
 // import Grid from './examples/Grid'
 // import Info from './examples/Info'
@@ -19,13 +19,13 @@ export const menuRoutes = [
       title: 'basic'
     }
   },
-  // {
-  //   path: '/event',
-  //   element: <Event></Event>,
-  //   meta: {
-  //     title: 'event'
-  //   }
-  // },
+  {
+    path: '/auto',
+    element: <Auto></Auto>,
+    meta: {
+      title: 'auto'
+    }
+  }
   // {
   //   path: '/grid',
   //   element: <Grid></Grid>,

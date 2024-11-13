@@ -17,7 +17,7 @@
     "lib"
   ],
   "main1": "lib/index.js",
-  "main": "./index.tsx",
+  "main": "./src/index.tsx",
   "repository": {
     "type": "git",
     "url": "https://github.com/kakajun/react-resize.git"

@@ -1,5 +1,4 @@
 import { Resizable } from 'react-resize'
-import './style.css'
 
 const BasicComponent = () => {
   return (

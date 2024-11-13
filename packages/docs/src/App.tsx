@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { router } from './router'
 import { RouterProvider } from 'react-router-dom'
 import { ThemeProvider } from 'antd-style'
+import './examples/style.css'
 
 const App: React.FC = () => {
   const [isLight, setIsLight] = useState(localStorage.getItem('theme') || 'light')
