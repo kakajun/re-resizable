@@ -1,5 +1,5 @@
 import { Resizable } from 'react-resize'
-
+import React from 'react'
 const BasicComponent = () => {
   return (
     <Resizable
