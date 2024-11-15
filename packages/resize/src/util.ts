@@ -114,3 +114,37 @@ export const calculateNewMax = (
 // 将单个值或数组转换为数组
 export const normalizeToPair = <T>(val: T | [T, T]): [T, T] =>
   Array.isArray(val) ? val : [val, val]
+
+export const definedProps = [
+  'as',
+  'ref',
+  'style',
+  'className',
+  'grid',
+  'gridGap',
+  'snap',
+  'bounds',
+  'boundsByDirection',
+  'size',
+  'defaultSize',
+  'minWidth',
+  'minHeight',
+  'maxWidth',
+  'maxHeight',
+  'lockAspectRatio',
+  'lockAspectRatioExtraWidth',
+  'lockAspectRatioExtraHeight',
+  'enable',
+  'handleStyles',
+  'handleClasses',
+  'handleWrapperStyle',
+  'handleWrapperClass',
+  'children',
+  'onResizeStart',
+  'onResize',
+  'onResizeStop',
+  'handleComponent',
+  'scale',
+  'resizeRatio',
+  'snapGap'
+]
