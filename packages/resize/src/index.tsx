@@ -1,4 +1,4 @@
-import React, { useCallback, useState, useEffect, useRef, useMemo } from 'react'
+import React, { useCallback, useState, useEffect, useRef } from 'react'
 import { flushSync } from 'react-dom'
 import { Resizer, Direction } from './resizer'
 import {
@@ -141,7 +141,7 @@ export const Resizable: React.FC<ResizableProps> = (props) => {
           return state[key].toString()
         }
         const parentSize = getParentSize()
-        debugger
+
         const value = Number(state[key].toString().replace('px', ''))
         const percent = (value / parentSize[key]) * 100
         return `${percent}%`
@@ -457,10 +457,10 @@ export const Resizable: React.FC<ResizableProps> = (props) => {
       // 修复 #168
       if (props.size) {
         if (typeof props.size.height !== 'undefined' && props.size.height !== state.height) {
-          setState((prevState) => ({ ...prevState, height: props.size.height }))
+          setState((prevState) => ({ ...prevState, height: props.size.height ?? 'auto' }))
         }
         if (typeof props.size.width !== 'undefined' && props.size.width !== state.width) {
-          setState((prevState) => ({ ...prevState, width: props.size.width }))
+          setState((prevState) => ({ ...prevState, width: props.size.width ?? 'auto' }))
         }
       }
 
@@ -480,7 +480,6 @@ export const Resizable: React.FC<ResizableProps> = (props) => {
       }
       // 对于边界
       setBoundingClientRect()
-      bindEvents()
       const newState = {
         original: {
           x: clientX,
@@ -508,7 +507,7 @@ export const Resizable: React.FC<ResizableProps> = (props) => {
       if (!state.isResizing || !resizableRef.current || !window) {
         return
       }
-      debugger
+
       if (window.TouchEvent && isTouchEvent(event)) {
         try {
           event.preventDefault()
@@ -668,7 +667,6 @@ export const Resizable: React.FC<ResizableProps> = (props) => {
         height: props.size.height ?? 'auto'
       }))
     }
-    unbindEvents()
     setState((prevState) => ({
       ...prevState,
       isResizing: false,
@@ -736,6 +734,18 @@ export const Resizable: React.FC<ResizableProps> = (props) => {
   }
 
   const Wrapper = props.as || 'div'
+
+  useEffect(() => {
+    if (state.isResizing) {
+      bindEvents()
+    } else {
+      unbindEvents()
+    }
+    // 清理函数
+    return () => {
+      unbindEvents()
+    }
+  }, [state.isResizing])
 
   return (
     <Wrapper style={style} className={props.className} {...extendsProps} ref={resizableRef}>

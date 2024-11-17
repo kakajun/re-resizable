@@ -1,7 +1,7 @@
 .rectstyle {
-  display: 'flex';
-  align-items: 'center';
-  justify-content: 'center';
-  border: 'solid 1px #ddd';
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: solid 1px #ddd;
   background: var(--es-bg-color-rect);
 }
