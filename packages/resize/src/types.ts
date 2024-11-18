@@ -14,6 +14,12 @@ export interface Enable {
   topLeft?: boolean
 }
 
+
+export interface NewSize {
+  newHeight: number | string
+  newWidth: number | string
+}
+
 export interface HandleStyles {
   top?: React.CSSProperties
   right?: React.CSSProperties
@@ -122,4 +128,3 @@ export interface State {
   backgroundStyle: React.CSSProperties
   flexBasis?: string | number
 }
-
