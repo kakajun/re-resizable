@@ -342,7 +342,7 @@ export const useHandle = (
 
       if (props.onResize) {
         if (changed) {
-          //   props.onResize(event, direction, resizableRef.current, delta)
+          props.onResize(event, direction, resizableRef.current, delta)
         }
       }
     },
