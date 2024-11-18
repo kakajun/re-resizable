@@ -1,4 +1,4 @@
-import React, { useCallback, useState, useEffect, useRef } from 'react'
+import React, { useCallback, useState, useRef } from 'react'
 
 import { Resizer, Direction } from './resizer'
 import { useHandle } from './hooks/useHandle'
@@ -75,15 +75,13 @@ export const Resizable: React.FC<ResizableProps> = (props) => {
   const resizableRef = useRef<HTMLElement | null>(null)
 
   const parentNode = resizableRef.current?.parentNode as HTMLElement | null
-  const {
-    bindEvents,
-    unbindEvents,
-    setBoundingClientRect,
-    getParentSize,
-    cpuSize,
-    ratio,
-    flexDir
-  } = useHandle(props, state, setState, resizableRef, parentNode)
+  const { setBoundingClientRect, getParentSize, cpuSize, ratio, flexDir } = useHandle(
+    props,
+    state,
+    setState,
+    resizableRef,
+    parentNode
+  )
 
   // 获取尺寸样式
   const sizeStyle = useCallback((): { width: string; height: string } => {
@@ -186,7 +184,7 @@ export const Resizable: React.FC<ResizableProps> = (props) => {
       console.log(newState, 'newState')
       setState((prevState) => ({ ...prevState, ...newState }))
     },
-    [resizableRef, props, state, cpuSize, bindEvents, parentNode]
+    [resizableRef, props, state, cpuSize, parentNode]
   )
 
   // 渲染调整器
@@ -249,18 +247,6 @@ export const Resizable: React.FC<ResizableProps> = (props) => {
   }
 
   const Wrapper = props.as || 'div'
-
-  useEffect(() => {
-    if (state.isResizing) {
-      bindEvents()
-    } else {
-      unbindEvents()
-    }
-    // 清理函数
-    return () => {
-      unbindEvents()
-    }
-  }, [state.isResizing])
 
   return (
     <Wrapper style={style} className={props.className} {...extendsProps} ref={resizableRef}>

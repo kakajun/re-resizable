@@ -1,4 +1,4 @@
-import { useCallback, useRef } from 'react'
+import { useCallback, useRef, useEffect } from 'react'
 import type { NumberSize, ResizableProps, State, NewSize } from '../types'
 
 import {
@@ -467,9 +467,18 @@ export const useHandle = (
     [parentNode]
   )
 
+  useEffect(() => {
+    if (state.isResizing) {
+      bindEvents()
+    } else {
+      unbindEvents()
+    }
+    // 清理函数
+    return () => {
+      unbindEvents()
+    }
+  }, [state.isResizing])
   return {
-    bindEvents,
-    unbindEvents,
     cpuSize,
     setBoundingClientRect,
     getParentSize,
