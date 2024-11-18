@@ -1,7 +1,9 @@
 {
   "route": {
     "basic": "Basic Example",
-    "auto": "Auto"
+    "auto": "Auto",
+    "size": "Size",
+    "snap": "Snap"
   },
   "common": {
     "code": "Code",

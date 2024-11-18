@@ -16,7 +16,7 @@ export const useHandle = (
   state: State,
   setState: (state: State) => void,
   resizableRef: React.RefObject<HTMLElement>,
-  parentNode: HTMLElement
+  parentNode: HTMLElement | null
 ) => {
   const parentLeft = useRef<number>(0)
   const parentTop = useRef<number>(0)
@@ -196,8 +196,8 @@ export const useHandle = (
     const computedMinHeight = typeof min.height === 'undefined' ? 10 : min.height
     const computedMaxHeight =
       typeof max.height === 'undefined' || max.height < 0 ? newHeight : max.height
-    const extraHeight = props.lockAspectRatioExtraHeight
-    const extraWidth = props.lockAspectRatioExtraWidth
+    const extraHeight = lockAspectRatioExtraHeight
+    const extraWidth = lockAspectRatioExtraWidth
     if (props.lockAspectRatio) {
       const extraMinWidth = (computedMinHeight - extraHeight) * ratio.current + extraWidth
       const extraMaxWidth = (computedMaxHeight - extraHeight) * ratio.current + extraWidth
@@ -336,7 +336,7 @@ export const useHandle = (
       if (changed) {
         // 对于v18，更新状态同步
         flushSync(() => {
-          setState((prevState) => ({ ...prevState, ...newState }))
+          setState((prevState: State) => ({ ...prevState, ...newState }))
         })
       }
 

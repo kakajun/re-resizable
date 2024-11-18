@@ -1,7 +1,9 @@
 {
   "route": {
     "basic": "基础示例",
-    "auto": "自动"
+    "auto": "自动",
+    "size": "尺寸",
+    "snap": "吸附"
   },
   "common": {
     "code": "代码",

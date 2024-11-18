@@ -1,15 +1,10 @@
-import { createHashRouter, createBrowserRouter, Navigate } from 'react-router-dom'
+import { createHashRouter, Navigate } from 'react-router-dom'
 import HomeLayout from './views/Home'
 import React from 'react'
 import Basic from './examples/Basic'
 import Auto from './examples/Auto'
-// import Group from './examples/Group'
-// import Grid from './examples/Grid'
-// import Info from './examples/Info'
-// import Markline from './examples/Markline'
-// import Slot from './examples/Slot'
-// import Chart from './examples/Chart'
-// import Menu from './examples/Menu'
+import Size from './examples/Size'
+import Snap from './examples/Snap'
 
 export const menuRoutes = [
   {
@@ -25,56 +20,21 @@ export const menuRoutes = [
     meta: {
       title: 'auto'
     }
+  },
+  {
+    path: '/size',
+    element: <Size></Size>,
+    meta: {
+      title: 'size'
+    }
+  },
+  {
+    path: '/snap',
+    element: <Snap></Snap>,
+    meta: {
+      title: 'snap'
+    }
   }
-  // {
-  //   path: '/grid',
-  //   element: <Grid></Grid>,
-  //   meta: {
-  //     title: 'grid'
-  //   }
-  // },
-  // {
-  //   path: '/info',
-  //   element: <Info></Info>,
-  //   meta: {
-  //     title: 'info'
-  //   }
-  // },
-  // {
-  //   path: '/slot',
-  //   element: <Slot></Slot>,
-  //   meta: {
-  //     title: 'slot'
-  //   }
-  // },
-  // {
-  //   path: '/chart',
-  //   element: <Chart></Chart>,
-  //   meta: {
-  //     title: 'chart'
-  //   }
-  // },
-  // {
-  //   path: '/markline',
-  //   element: <Markline></Markline>,
-  //   meta: {
-  //     title: 'markline'
-  //   }
-  // },
-  // {
-  //   path: '/group',
-  //   element: <Group></Group>,
-  //   meta: {
-  //     title: 'group'
-  //   }
-  // }
-  // // {
-  // //   path: 'menu',
-  // //   element: <Menu></Menu>,
-  // //   meta: {
-  // //     title: 'menu'
-  // //   }
-  // // },
 ]
 
 export const router = createHashRouter([
