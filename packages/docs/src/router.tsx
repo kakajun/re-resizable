@@ -5,8 +5,10 @@ import Basic from './examples/Basic'
 import Auto from './examples/Auto'
 import Size from './examples/Size'
 import Snap from './examples/Snap'
-import Aspect from './examples/Aspect'
 import Extra from './examples/Extra'
+import Aspect from './examples/Aspect'
+import Min from './examples/Min'
+import Max from './examples/Max'
 
 export const menuRoutes = [
   {
@@ -49,6 +51,20 @@ export const menuRoutes = [
     element: <Extra></Extra>,
     meta: {
       title: 'extra'
+    }
+  },
+  {
+    path: '/min',
+    element: <Min></Min>,
+    meta: {
+      title: 'min'
+    }
+  },
+  {
+    path: '/max',
+    element: <Max></Max>,
+    meta: {
+      title: 'max'
     }
   }
 ]

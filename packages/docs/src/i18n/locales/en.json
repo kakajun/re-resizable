@@ -6,7 +6,9 @@
     "snap": "Snap",
     "bounds": "Bounds",
     "aspect": "Aspect",
-    "extra": "Extra"
+    "extra": "Extra",
+    "min": "Min",
+    "max": "Max"
   },
   "common": {
     "code": "Code",

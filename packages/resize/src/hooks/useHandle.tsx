@@ -1,6 +1,6 @@
 import { useCallback, useRef } from 'react'
 import type { NumberSize, ResizableProps, State, NewSize } from '../types'
-import { flushSync } from 'react-dom'
+
 import {
   clamp,
   snap,
@@ -334,10 +334,7 @@ export const useHandle = (
       const changed = widthChanged || heightChanged || flexBaseChanged
 
       if (changed) {
-        // 对于v18，更新状态同步
-        flushSync(() => {
-          setState((prevState: State) => ({ ...prevState, ...newState }))
-        })
+        setState((prevState: State) => ({ ...prevState, ...newState }))
       }
 
       if (props.onResize) {

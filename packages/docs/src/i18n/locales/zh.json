@@ -5,7 +5,9 @@
     "size": "尺寸",
     "snap": "吸附",
     "extra": "额外",
-    "aspect": "同样比例"
+    "aspect": "同样比例",
+    "min": "最小",
+    "max": "最大"
   },
   "common": {
     "code": "代码",
