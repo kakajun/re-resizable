@@ -371,13 +371,6 @@ export const useHandle = (
     if (props.onResizeStop) {
       props.onResizeStop(event, direction, resizableRef.current, delta)
     }
-    if (props.size) {
-      setState((prevState: State) => ({
-        ...prevState,
-        width: props.size?.width ?? 'auto',
-        height: props.size?.height ?? 'auto'
-      }))
-    }
     setState((prevState: State) => ({
       ...prevState,
       isResizing: false,

@@ -6,6 +6,10 @@ const BasicComponent = () => {
     height: '20%'
   })
 
+  React.useEffect(() => {
+    console.log(state, 'size')
+  }, [state])
+
   return (
     <Resizable
       className="rectstyle"

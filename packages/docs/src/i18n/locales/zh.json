@@ -3,7 +3,9 @@
     "basic": "基础示例",
     "auto": "自动",
     "size": "尺寸",
-    "snap": "吸附"
+    "snap": "吸附",
+    "extra": "额外",
+    "aspect": "同样比例"
   },
   "common": {
     "code": "代码",

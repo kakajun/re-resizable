@@ -5,6 +5,8 @@ import Basic from './examples/Basic'
 import Auto from './examples/Auto'
 import Size from './examples/Size'
 import Snap from './examples/Snap'
+import Aspect from './examples/Aspect'
+import Extra from './examples/Extra'
 
 export const menuRoutes = [
   {
@@ -33,6 +35,20 @@ export const menuRoutes = [
     element: <Snap></Snap>,
     meta: {
       title: 'snap'
+    }
+  },
+  {
+    path: '/aspect',
+    element: <Aspect></Aspect>,
+    meta: {
+      title: 'aspect'
+    }
+  },
+  {
+    path: '/extra',
+    element: <Extra></Extra>,
+    meta: {
+      title: 'extra'
     }
   }
 ]

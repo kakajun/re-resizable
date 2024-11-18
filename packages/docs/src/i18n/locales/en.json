@@ -3,7 +3,10 @@
     "basic": "Basic Example",
     "auto": "Auto",
     "size": "Size",
-    "snap": "Snap"
+    "snap": "Snap",
+    "bounds": "Bounds",
+    "aspect": "Aspect",
+    "extra": "Extra"
   },
   "common": {
     "code": "Code",
