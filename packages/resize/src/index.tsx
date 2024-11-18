@@ -114,25 +114,6 @@ export const Resizable: React.FC<ResizableProps> = (props) => {
     return { width, height }
   }, [state, propsSize, props.size])
 
-  // 组件挂载后
-  useEffect(() => {
-    if (!resizableRef.current || !window) {
-      return
-    }
-    const computedStyle = window.getComputedStyle(resizableRef.current)
-    setState((prevState) => ({
-      ...prevState,
-      width: prevState.width || cpuSize().width,
-      height: prevState.height || cpuSize().height,
-      flexBasis: computedStyle.flexBasis !== 'auto' ? computedStyle.flexBasis : undefined
-    }))
-    return () => {
-      if (window) {
-        unbindEvents()
-      }
-    }
-  }, [])
-
   // 开始调整大小
   const onResizeStart = useCallback(
     (
