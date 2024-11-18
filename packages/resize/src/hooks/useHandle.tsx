@@ -14,7 +14,7 @@ import {
 export const useHandle = (
   props: ResizableProps,
   state: State,
-  setState: (state: State) => void,
+  setState: React.Dispatch<React.SetStateAction<State>>,
   resizableRef: React.RefObject<HTMLElement>,
   parentNode: HTMLElement | null
 ) => {
