@@ -7,7 +7,8 @@
     "extra": "额外",
     "aspect": "同样比例",
     "min": "最小",
-    "max": "最大"
+    "max": "最大",
+    "vwvh": "vw vh"
   },
   "common": {
     "code": "代码",

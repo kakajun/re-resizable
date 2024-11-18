@@ -9,6 +9,7 @@ import Extra from './examples/Extra'
 import Aspect from './examples/Aspect'
 import Min from './examples/Min'
 import Max from './examples/Max'
+import Vwvh from './examples/Vwvh'
 
 export const menuRoutes = [
   {
@@ -65,6 +66,13 @@ export const menuRoutes = [
     element: <Max></Max>,
     meta: {
       title: 'max'
+    }
+  },
+  {
+    path: '/vwvh',
+    element: <Vwvh></Vwvh>,
+    meta: {
+      title: 'vwvh'
     }
   }
 ]

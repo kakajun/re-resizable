@@ -8,7 +8,8 @@
     "aspect": "Aspect",
     "extra": "Extra",
     "min": "Min",
-    "max": "Max"
+    "max": "Max",
+    "vwvh": "vw vh"
   },
   "common": {
     "code": "Code",
