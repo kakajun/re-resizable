@@ -110,7 +110,7 @@ export const Resizable: React.FC<ResizableProps> = (props) => {
         ? getStringSize(props.size.height)
         : getSize('height')
     return { width, height }
-  }, [state, propsSize, props.size])
+  }, [state,  props.size])
 
   // 开始调整大小
   const onResizeStart = useCallback(
@@ -181,7 +181,6 @@ export const Resizable: React.FC<ResizableProps> = (props) => {
         direction,
         flexBasis
       }
-      console.log(newState, 'newState')
       setState((prevState) => ({ ...prevState, ...newState }))
     },
     [resizableRef, props, state, cpuSize, parentNode]

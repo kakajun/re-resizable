@@ -8,7 +8,8 @@
     "aspect": "同样比例",
     "min": "最小",
     "max": "最大",
-    "vwvh": "vw vh"
+    "vwvh": "vw vh",
+    "echart": "Echart"
   },
   "common": {
     "code": "代码",

@@ -9,7 +9,8 @@
     "extra": "Extra",
     "min": "Min",
     "max": "Max",
-    "vwvh": "vw vh"
+    "vwvh": "vw vh",
+    "echart": "Echart"
   },
   "common": {
     "code": "Code",

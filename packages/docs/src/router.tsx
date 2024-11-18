@@ -10,6 +10,8 @@ import Aspect from './examples/Aspect'
 import Min from './examples/Min'
 import Max from './examples/Max'
 import Vwvh from './examples/Vwvh'
+import Echart from './examples/Echart'
+
 
 export const menuRoutes = [
   {
@@ -73,6 +75,13 @@ export const menuRoutes = [
     element: <Vwvh></Vwvh>,
     meta: {
       title: 'vwvh'
+    }
+  },
+  {
+    path: '/echart',
+    element: <Echart></Echart>,
+    meta: {
+      title: 'echart'
     }
   }
 ]
